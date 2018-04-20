@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <div class="container">
+    Для подтверждения сгенерированного блока может потребоваться некоторое время. Обычно это происходит достаточно быстро.
+  </div>
+</div>
+<div class="container">
+  {{#if model.luck}}
+    {{partial "luck"}}
+  {{/if}}
+  <ul class="nav nav-tabs">
+    {{#active-li currentWhen='blocks.index' role='presentation'}}
+      {{#link-to 'blocks.index'}}Блоки <span class="badge alert-success">{{format-number model.maturedTotal}}</span>{{/link-to}}
+    {{/active-li}}
+    {{#active-li currentWhen='blocks.immature' role='presentation'}}
+      {{#link-to 'blocks.immature'}}Неподтвержденные <span class="badge alert-success">{{format-number model.immatureTotal}}</span>{{/link-to}}
+    {{/active-li}}
+    {{#active-li currentWhen='blocks.pending' role='presentation'}}
+      {{#link-to 'blocks.pending'}}Новые блоки <span class="badge alert-info">{{format-number model.candidatesTotal}}</span>{{/link-to}}
+    {{/active-li}}
+  </ul>
+  {{outlet}}
+</div>
